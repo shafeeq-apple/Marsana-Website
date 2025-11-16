@@ -87,7 +87,7 @@ body{
   box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.02);
   transition: transform 300ms cubic-bezier(.2,.9,.3,1), box-shadow 300ms;
   transform-style: preserve-3d;
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 .card-inner:hover{
   transform: translateY(-12px) rotateX(3deg) scale(1.02);
