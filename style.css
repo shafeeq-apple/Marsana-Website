@@ -1,0 +1,140 @@
+/* --- Base --- */
+:root{
+  --bg:#0b0b0c;
+  --white: #ffffff;
+  --gold: #d6b85a;
+  --soft:#f4f4f5;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.12);
+  --accent: rgba(214,184,90,0.12);
+  --card-radius: 16px;
+  --max-width: 1200px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#050506 0%, #0b0b0c 60%);
+  color:var(--soft);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+/* Entry screen (cinematic) */
+.entry-screen{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.25));
+  z-index:500;
+  overflow:hidden;
+}
+.entry-inner{
+  text-align:center; z-index:10; padding:40px; border-radius:20px;
+  backdrop-filter: blur(6px) saturate(1.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  width: min(880px, 92%);
+}
+.logo-plate{display:flex; gap:14px; align-items:center; justify-content:center; margin-bottom:10px}
+.logo-text h1{font-family: "Playfair Display", serif; color:var(--gold); margin:0; font-size:36px; letter-spacing:1px}
+.logo-text p{margin:0; font-size:14px; color:var(--soft)}
+.logo-marker{width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,var(--white), #fff3cc); box-shadow: 0 6px 22px rgba(214,184,90,0.14); transform:rotate(16deg)}
+
+/* background layers for subtle movement */
+.bg-layer{position:absolute; inset:0; pointer-events:none}
+.bg-layer-1{background: radial-gradient(600px 300px at 10% 10%, rgba(214,184,90,0.06), transparent 18%);}
+.bg-layer-2{background: radial-gradient(500px 250px at 90% 80%, rgba(255,255,255,0.02), transparent 18%);}
+.bg-layer-3{background: linear-gradient(180deg, transparent, rgba(0,0,0,0.2)); mix-blend-mode:overlay}
+
+/* entry texts */
+.welcome{font-size:20px; margin:4px 0 6px; color:var(--white)}
+.tagline{margin:8px 0 20px; color:rgba(255,255,255,0.8)}
+.enter-btn{
+  padding:14px 28px; border-radius:12px; border:2px solid rgba(214,184,90,0.15);
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color:var(--gold); font-weight:700; cursor:pointer; letter-spacing:0.6px;
+  box-shadow: 0 8px 30px rgba(214,184,90,0.06), 0 2px 6px rgba(0,0,0,0.6);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.enter-btn:hover{transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 60px rgba(214,184,90,0.12)}
+
+/* Hide main initially */
+.hidden{display:none}
+
+/* Main header */
+.site-header{padding:22px 28px; display:flex; justify-content:center}
+.brand{max-width:var(--max-width); width:100%; display:flex; justify-content:space-between; align-items:center}
+.brand-left{display:flex; gap:12px; align-items:center}
+.brand-logo{width:54px; height:54px; border-radius:12px; background: linear-gradient(135deg,#fff3cc,#ffd57a); box-shadow: 0 10px 30px rgba(214,184,90,0.12)}
+.brand-name{font-weight:700; color:var(--white)}
+.brand-sub{font-size:12px; color:rgba(255,255,255,0.6)}
+.header-contact{font-size:13px; color:rgba(255,255,255,0.75); text-align:right}
+
+/* Gallery */
+.gallery-wrap{padding:10px 20px 80px; display:flex; flex-direction:column; align-items:center}
+.gallery-intro{max-width:900px; text-align:center; margin:14px 0 28px}
+.gallery{display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:24px; width:100%; max-width:var(--max-width)}
+
+/* Card */
+.car-card{
+  perspective:1200px;
+}
+.card-inner{
+  border-radius:var(--card-radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  padding:14px; display:flex; gap:12px; align-items:stretch; height:220px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.02);
+  transition: transform 300ms cubic-bezier(.2,.9,.3,1), box-shadow 300ms;
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.card-inner:hover{
+  transform: translateY(-12px) rotateX(3deg) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+}
+
+/* visual / image area */
+.car-visual{flex:0 0 42%; display:flex; align-items:center; justify-content:center; padding:8px}
+.car-visual img{max-width:100%; max-height:180px; object-fit:contain; transform: translateZ(40px); transition: transform 350ms ease}
+
+/* body area */
+.card-body{flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:6px 8px}
+.card-body h3{margin:0; font-size:18px; color:var(--white); font-weight:700}
+.year{font-weight:400; color:rgba(255,255,255,0.7); font-size:13px; margin-left:6px}
+.badge{display:inline-block; margin-top:6px; background:linear-gradient(90deg,#fff7d6,#d6b85a); color:#1a1a1a; padding:6px 8px; border-radius:8px; font-weight:700; font-size:12px}
+.prices{list-style:none; padding:10px 0 0; margin:0; color:rgba(255,255,255,0.85)}
+.prices li{font-size:14px; margin-bottom:4px}
+.vat{font-size:12px; color:rgba(255,255,255,0.6)}
+
+/* buttons */
+.book-btn{
+  background: linear-gradient(90deg, rgba(214,184,90,0.14), rgba(255,255,255,0.03));
+  color:var(--gold); border: 1px solid rgba(214,184,90,0.18); padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:700;
+  transition: transform .2s ease, box-shadow .2s;
+}
+.book-btn:hover{transform: translateY(-6px); box-shadow: 0 12px 30px rgba(214,184,90,0.08)}
+
+/* popup */
+.popup{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center; z-index:600;
+  background: linear-gradient(0deg, rgba(0,0,0,0.55), rgba(0,0,0,0.6));
+}
+.popup-card{
+  width:98%; max-width:420px; border-radius:16px; padding:20px; background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
+  color:#111; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+.popup-card h3{margin:6px 0 14px; font-weight:700}
+.popup-card label{display:block; font-size:13px; margin:6px 0 4px}
+.popup-card input{width:100%; padding:12px; border-radius:10px; border:1px solid rgba(0,0,0,0.06); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6)}
+.confirm-btn{width:100%; padding:12px; margin-top:12px; background: linear-gradient(90deg,#d6b85a, #fff3cc); border:none; border-radius:10px; font-weight:800; cursor:pointer}
+.close-x{position:absolute; right:18px; top:18px; background:transparent; border:none; font-size:22px; cursor:pointer}
+
+/* footer */
+.site-footer{padding:28px; text-align:center; color:rgba(255,255,255,0.5)}
+/* responsiveness */
+@media (max-width:640px){
+  .card-inner{flex-direction:column; height:auto}
+  .car-visual{width:100%}
+  .car-visual img{max-height:160px}
+}

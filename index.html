@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marsana Premium Showcase</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+<body>
+
+<!-- PRELOADER / ENTRY SCREEN -->
+<div id="entry" class="entry-screen">
+  <div class="entry-inner">
+    <div class="logo-plate">
+      <div class="logo-text">
+        <h1>Marsana</h1>
+        <p>Rent A Car — Jeddah</p>
+      </div>
+      <div class="logo-marker"></div>
+    </div>
+
+    <h2 class="welcome">Welcome to the Marsana Premium Showcase</h2>
+    <p class="tagline">Doorstep delivery · 10% OFF · Unrivaled service</p>
+
+    <button id="enterBtn" class="enter-btn">ENTER SHOWCASE</button>
+    <p class="hint">Tap ENTER to begin the cinematic experience</p>
+  </div>
+
+  <!-- soft animated background layers -->
+  <div class="bg-layer bg-layer-1"></div>
+  <div class="bg-layer bg-layer-2"></div>
+  <div class="bg-layer bg-layer-3"></div>
+</div>
+
+<!-- MAIN PAGE (hidden until enter) -->
+<main id="main" class="main-content hidden">
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-left">
+        <div class="brand-logo"></div>
+        <div>
+          <div class="brand-name">Marsana Rent A Car</div>
+          <div class="brand-sub">Premium Fleet • Doorstep Service</div>
+        </div>
+      </div>
+      <div class="header-contact">
+        <div>10% OFF • Jeddah</div>
+        <div class="phone">+966 51 005 1071</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="gallery-wrap">
+    <div class="gallery-intro">
+      <h2>Our Fleet — Curated 11 Vehicles</h2>
+      <p>Luxury finish, clean rides, competitive pricing. Click a card to book.</p>
+    </div>
+
+    <div id="gallery" class="gallery">
+      <!-- Each .car-card is created in HTML for clarity -->
+      <article class="car-card" data-car="KIA K3 (2025)">
+        <div class="card-inner">
+          <div class="car-visual">
+            <img src="images/kia-k3.png" alt="KIA K3" />
+          </div>
+          <div class="card-body">
+            <h3>KIA K3 <span class="year">(2025)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 140 SAR</li>
+              <li>Weekly: 910 SAR</li>
+              <li>Monthly: 2,850 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Suzuki Dzire (2024)">
+        <div class="card-inner">
+          <div class="car-visual">
+            <img src="images/suzuki-dzire.png" alt="Suzuki Dzire" />
+          </div>
+          <div class="card-body">
+            <h3>Suzuki Dzire <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 95 SAR</li>
+              <li>Weekly: 560 SAR</li>
+              <li>Monthly: 2,110 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Toyota Corolla (2025)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/toyota-corolla.png" alt="Toyota Corolla" /></div>
+          <div class="card-body">
+            <h3>Toyota Corolla <span class="year">(2025)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 172 SAR</li>
+              <li>Weekly: 1,050 SAR</li>
+              <li>Monthly: 3,800 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Hyundai Accent (2024)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/hyundai-accent.png" alt="Hyundai Accent" /></div>
+          <div class="card-body">
+            <h3>Hyundai Accent <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 110 SAR</li>
+              <li>Weekly: 630 SAR</li>
+              <li>Monthly: 2,550 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Nissan Sunny (2024)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/nissan-sunny.png" alt="Nissan Sunny" /></div>
+          <div class="card-body">
+            <h3>Nissan Sunny <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 95 SAR</li>
+              <li>Weekly: 560 SAR</li>
+              <li>Monthly: 2,100 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="KIA Pegas (2025)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/kia-pegas.png" alt="KIA Pegas" /></div>
+          <div class="card-body">
+            <h3>KIA Pegas <span class="year">(2025)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 95 SAR</li>
+              <li>Weekly: 560 SAR</li>
+              <li>Monthly: 2,100 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Toyota Yaris (2024)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/toyota-yaris.png" alt="Toyota Yaris" /></div>
+          <div class="card-body">
+            <h3>Toyota Yaris <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 110 SAR</li>
+              <li>Weekly: 630 SAR</li>
+              <li>Monthly: 2,550 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Hyundai Grand i10 (2024)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/grand-i10.png" alt="Hyundai Grand i10" /></div>
+          <div class="card-body">
+            <h3>Hyundai Grand i10 <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 95 SAR</li>
+              <li>Weekly: 560 SAR</li>
+              <li>Monthly: 2,100 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Hyundai i10 (2025)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/hyundai-i10.png" alt="Hyundai i10" /></div>
+          <div class="card-body">
+            <h3>Hyundai i10 <span class="year">(2025)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 95 SAR</li>
+              <li>Weekly: 560 SAR</li>
+              <li>Monthly: 2,100 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Hyundai Elantra (2023)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/hyundai-elantra.png" alt="Hyundai Elantra" /></div>
+          <div class="card-body">
+            <h3>Hyundai Elantra <span class="year">(2023)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 150 SAR</li>
+              <li>Weekly: 945 SAR</li>
+              <li>Monthly: 3,600 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="car-card" data-car="Suzuki Baleno (2024)">
+        <div class="card-inner">
+          <div class="car-visual"><img src="images/suzuki-baleno.png" alt="Suzuki Baleno" /></div>
+          <div class="card-body">
+            <h3>Suzuki Baleno <span class="year">(2024)</span></h3>
+            <span class="badge">10% OFF</span>
+            <ul class="prices">
+              <li>Daily: 100 SAR</li>
+              <li>Weekly: 630 SAR</li>
+              <li>Monthly: 2,250 SAR</li>
+            </ul>
+            <div class="vat">Prices include VAT</div>
+            <button class="book-btn">Book Now</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div>© Marsana Rent A Car — Jeddah</div>
+    <div>Doorstep Delivery • 10% OFF • Premium Service</div>
+  </footer>
+</main>
+
+<!-- BOOKING POPUP -->
+<div id="popup" class="popup hidden">
+  <div class="popup-card">
+    <button id="closePopup" class="close-x" aria-label="close">&times;</button>
+    <h3>Confirm Your Booking</h3>
+    <form id="bookForm">
+      <label>Full Name</label>
+      <input name="user_name" type="text" required />
+
+      <label>Mobile Number</label>
+      <input name="user_mobile" type="tel" placeholder="+9665XXXXXXXX" required />
+
+      <label>Pickup Date</label>
+      <input name="pickup_date" type="date" required />
+
+      <label>Selected Car</label>
+      <input id="carField" name="selected_car" type="text" readonly />
+
+      <button type="submit" class="confirm-btn">Confirm Booking</button>
+    </form>
+    <div class="popup-note">We will email you a confirmation shortly.</div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
