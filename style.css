@@ -60,7 +60,7 @@ body{
 .enter-btn:hover{transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 60px rgba(214,184,90,0.12)}
 
 /* Hide main initially */
-.hidden{display:none}
+.hidden{display:none !important}
 
 /* Main header */
 .site-header{padding:22px 28px; display:flex; justify-content:center}
